@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTA</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0b0f14">
+
+
+
+</head>
+
+<body>
+
+  <H1>Calculator Trader Assistance</H1>
+
+    <div class="container ">
+
+        <div class="size">
+
+            <p class="title">Position Size</p>
+
+            <form>
+                <label >Risk Amount</label>
+                <input id="risk" type="number" placeholder="USD" min="0" required>
+                <label >Stop Loss</label>
+                <input id="stop" type="number" placeholder="pip" min="0" required>
+                <label >Pip Value</label>
+                <input id="Value" type="number" placeholder="default 10$" min="0" required>
+                <input type="button" onclick="positionSize()" value="Calculate">
+            </form>
+
+            <P id="sizeResult" class="result"></P>
+
+        </div>
+
+        <div class="risk">
+
+            <p class="title">Risk Percent</p>
+
+            <form >
+                <label >Margin</label>
+                <input id="margin" type="number" placeholder="USD" min="0" required>
+                <label >Risk Percent</label>
+                <input id="percent" type="number" placeholder="1%" min="0" required>
+                <input type="button" onclick="riskManagment()" value="Calculate">
+            </form>
+
+            <P id="riskResult" class="result"></P>
+
+        </div>
+
+    </div>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker Registered"));
+        }
+    </script>
+
+    
+</body>
+
+</html>
