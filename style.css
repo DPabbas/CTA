@@ -155,10 +155,11 @@ input[type="button"]:hover { filter: brightness(1.05); }
 /* RESPONSIVE */
 @media (max-width: 768px) {
 
-  .container { flex-direction: column; padding: 20px; margin: 0px 0px; align-items: center;} 
+  .container { flex-direction: column; padding: 10px; margin: 0px 0px; align-items: center;} 
 
-  .size,.risk { width: 80%;  }
+  .size,.risk { width: 90%;  }
 
 }
+
 
 
