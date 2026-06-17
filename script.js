@@ -3,12 +3,12 @@
  // position size section   
 let risk= document.getElementById("risk")
 let stop = document.getElementById("stop")
-let value = document.getElementById("Value")
+
 
 function positionSize () {
 
     let size = Number(risk.value) / 
-               (Number(stop.value) * Number(value.value))
+               (Number(stop.value) * 10 + 5)
 
     let res = document.getElementById("sizeResult")
     res.innerText = "The Position Size =" + " " + (size)
