@@ -6,15 +6,17 @@ let rr = document.getElementById("rr");
 // Calculate Position Size
 function calculateSize() {
 
+```
 return Number(risk.value) /
        ((Number(stop.value) * 10) + 5);
+```
 
 }
 
 // Main Trade Calculator
 function calculateTrade() {
 
-
+```
 let size = calculateSize();
 
 let grossProfit =
@@ -31,7 +33,7 @@ let sizeRes =
     document.getElementById("sizeResult");
 
 sizeRes.innerHTML =
-    Position Size: <strong>${size.toFixed(2)}</strong> Lot;
+    `Position Size: <strong>${size.toFixed(2)}</strong> Lot`;
 
 sizeRes.classList.add("show");
 
@@ -40,15 +42,15 @@ let profitRes =
     document.getElementById("profitAmount");
 
 profitRes.innerHTML =
-    
+    `
     Gross Profit: ${grossProfit.toFixed(2)}$<br>
     Commission: ${commission.toFixed(2)}$<br>
     Net Profit: ${netProfit.toFixed(2)}$<br>
     Effective RR: ${(netProfit / Number(risk.value)).toFixed(2)}
-    ;
+    `;
 
 profitRes.classList.add("show");
-
+```
 
 }
 
@@ -58,7 +60,7 @@ let percent = document.getElementById("percent");
 
 function riskManagment() {
 
-
+```
 let riskAmount =
     Number(margin.value) *
     (Number(percent.value) / 100);
@@ -70,6 +72,6 @@ res.innerText =
     `Risk Amount = ${riskAmount.toFixed(2)}$`;
 
 res.classList.add("show");
-
+```
 
 }
