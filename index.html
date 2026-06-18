@@ -30,7 +30,7 @@
                 <input id="risk" type="number" placeholder="USD" min="0" required>
                 <label >Stop Loss</label>
                 <input id="stop" type="number" placeholder="pip" min="0" required>
-                <input type="button" onclick="positionSize()" value="Calculate">
+                <input type="button" onclick="positionSize(); profitAmount();" value="Calculate">
             </form>
 
             <P id="sizeResult" class="result"></P>
