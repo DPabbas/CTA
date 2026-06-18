@@ -1,49 +1,75 @@
+// Position Size Elements
+let risk = document.getElementById("risk");
+let stop = document.getElementById("stop");
+let rr = document.getElementById("rr");
+
+// Calculate Position Size
+function calculateSize() {
+
+return Number(risk.value) /
+       ((Number(stop.value) * 10) + 5);
+
+}
+
+// Main Trade Calculator
+function calculateTrade() {
 
 
- // position size section   
-let risk= document.getElementById("risk")
-let stop = document.getElementById("stop")
+let size = calculateSize();
 
+let grossProfit =
+    Number(risk.value) * Number(rr.value);
 
-function positionSize () {
+let commission =
+    size * 5;
 
-    let size = Number(risk.value) / 
-               (Number(stop.value) * 10 + 5)
+let netProfit =
+    grossProfit - commission;
 
-    let res = document.getElementById("sizeResult")
-    res.innerText = "The Position Size =" + " " + (size)
-    res.classList.add("show")
+// Position Size Output
+let sizeRes =
+    document.getElementById("sizeResult");
+
+sizeRes.innerHTML =
+    Position Size: <strong>${size.toFixed(2)}</strong> Lot;
+
+sizeRes.classList.add("show");
+
+// Profit Output
+let profitRes =
+    document.getElementById("profitAmount");
+
+profitRes.innerHTML =
+    
+    Gross Profit: ${grossProfit.toFixed(2)}$<br>
+    Commission: ${commission.toFixed(2)}$<br>
+    Net Profit: ${netProfit.toFixed(2)}$<br>
+    Effective RR: ${(netProfit / Number(risk.value)).toFixed(2)}
+    ;
+
+profitRes.classList.add("show");
 
 
 }
 
-function profitAmount () {
+// Risk Amount Section
+let margin = document.getElementById("margin");
+let percent = document.getElementById("percent");
 
-    let profit = ( (Number(risk.value) * 2) - ((size) * 5) )
-               
+function riskManagment() {
 
-    let prof = document.getElementById("profitAmount")
-    prof.innerText = "The Profit Amount =" + " " + (profit) + " " + "$"
-    prof.classList.add("show")
+
+let riskAmount =
+    Number(margin.value) *
+    (Number(percent.value) / 100);
+
+let res =
+    document.getElementById("riskResult");
+
+res.innerText =
+    `Risk Amount = ${riskAmount.toFixed(2)}$`;
+
+res.classList.add("show");
 
 
 }
-
-
-
-// risk amount section
-let margin = document.getElementById("margin")
-let percent= document.getElementById("percent")
-
-function riskManagment () {
-
-    let risk = Number(margin.value) * (Number(percent.value) / 100)
-             
-
-    let res = document.getElementById("riskResult")
-    res.innerText = "The Risk Amount =" + " " + (risk) + "$"
-    res.classList.add("show")
-
-}
-
-
