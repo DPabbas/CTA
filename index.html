@@ -1,66 +1,71 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CTA</title>
-    
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#0b0f14">
+```
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0b0f14">
+<link rel="icon" type="image/png" href="favicon.png">
+```
 
 </head>
 
 <body>
 
-  <H1>Calculator Trader Assistance</H1>
+```
+<h1>Calculator Trader Assistance</h1>
 
-    <div class="container ">
+<div class="container">
 
-        <div class="size">
+    <div class="size">
 
-            <p class="title">Position Size</p>
+        <p class="title">Position Size Calculator</p>
 
-            <form>
-                <label >Risk Amount</label>
-                <input id="risk" type="number" placeholder="USD" min="0" required>
-                <label >Stop Loss</label>
-                <input id="stop" type="number" placeholder="pip" min="0" required>
-                <input type="button" onclick="positionSize(); profitAmount();" value="Calculate">
-            </form>
+        <form>
+            <label>Risk Amount ($)</label>
+            <input id="risk" type="number" placeholder="30" min="0">
 
-            <P id="sizeResult" class="result"></P>
-            <P id="profitAmount" class="result"></P>
+            <label>Stop Loss (Pips)</label>
+            <input id="stop" type="number" placeholder="10" min="0">
 
-        </div>
+            <label>Risk Reward (RR)</label>
+            <input id="rr" type="number" placeholder="2" min="1" step="0.1">
 
-        <div class="risk">
+            <input type="button" onclick="calculateTrade()" value="Calculate">
+        </form>
 
-            <p class="title">Risk Percent</p>
-
-            <form >
-                <label >Margin</label>
-                <input id="margin" type="number" placeholder="USD" min="0" required>
-                <label >Risk Percent</label>
-                <input id="percent" type="number" placeholder="1%" min="0" required>
-                <input type="button" onclick="riskManagment()" value="Calculate">
-            </form>
-
-            <P id="riskResult" class="result"></P>
-
-        </div>
+        <p id="sizeResult" class="result"></p>
+        <p id="profitAmount" class="result"></p>
 
     </div>
 
-    
+    <div class="risk">
 
-    
+        <p class="title">Risk Percent</p>
+
+        <form>
+            <label>Margin ($)</label>
+            <input id="margin" type="number" placeholder="1000" min="0">
+
+            <label>Risk Percent (%)</label>
+            <input id="percent" type="number" placeholder="2" min="0">
+
+            <input type="button" onclick="riskManagment()" value="Calculate">
+        </form>
+
+        <p id="riskResult" class="result"></p>
+
+    </div>
+
+</div>
+```
+
 </body>
-
-
 </html>
-
