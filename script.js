@@ -17,6 +17,19 @@ function positionSize () {
 
 }
 
+function profitAmount () {
+
+    let profit = ( (Number(risk.value) * 2) - ((size) * 5) )
+               
+
+    let prof = document.getElementById("profitAmount")
+    prof.innerText = "The Profit Amount =" + " " + (profit) + " " + "$"
+    prof.classList.add("show")
+
+
+}
+
+
 
 // risk amount section
 let margin = document.getElementById("margin")
