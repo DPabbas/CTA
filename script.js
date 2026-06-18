@@ -1,77 +1,70 @@
-// Position Size Elements
-let risk = document.getElementById("risk");
-let stop = document.getElementById("stop");
-let rr = document.getElementById("rr");
-
-// Calculate Position Size
-function calculateSize() {
-
-```
-return Number(risk.value) /
-       ((Number(stop.value) * 10) + 5);
-```
-
-}
-
-// Main Trade Calculator
 function calculateTrade() {
 
-```
-let size = calculateSize();
+    const risk =
+        Number(document.getElementById("risk").value);
 
-let grossProfit =
-    Number(risk.value) * Number(rr.value);
+    const stop =
+        Number(document.getElementById("stop").value);
 
-let commission =
-    size * 5;
+    const rr =
+        Number(document.getElementById("rr").value);
 
-let netProfit =
-    grossProfit - commission;
+    if (!risk || !stop || !rr) {
+        alert("Please fill all fields");
+        return;
+    }
 
-// Position Size Output
-let sizeRes =
-    document.getElementById("sizeResult");
+    const positionSize =
+        risk / ((stop * 10) + 5);
 
-sizeRes.innerHTML =
-    `Position Size: <strong>${size.toFixed(2)}</strong> Lot`;
+    const grossProfit =
+        risk * rr;
 
-sizeRes.classList.add("show");
+    const commission =
+        positionSize * 5;
 
-// Profit Output
-let profitRes =
-    document.getElementById("profitAmount");
+    const netProfit =
+        grossProfit - commission;
 
-profitRes.innerHTML =
-    `
-    Gross Profit: ${grossProfit.toFixed(2)}$<br>
-    Commission: ${commission.toFixed(2)}$<br>
-    Net Profit: ${netProfit.toFixed(2)}$<br>
-    Effective RR: ${(netProfit / Number(risk.value)).toFixed(2)}
-    `;
+    const effectiveRR =
+        netProfit / risk;
 
-profitRes.classList.add("show");
-```
+    document.getElementById("sizeResult").innerHTML =
+        `Position Size: ${positionSize.toFixed(2)} Lot`;
 
+    document.getElementById("profitResult").innerHTML =
+        `
+        Gross Profit: ${grossProfit.toFixed(2)}$<br>
+        Commission: ${commission.toFixed(2)}$<br>
+        Net Profit: ${netProfit.toFixed(2)}$<br>
+        Effective RR: ${effectiveRR.toFixed(2)}
+        `;
+
+    document
+        .getElementById("sizeResult")
+        .classList.add("show");
+
+    document
+        .getElementById("profitResult")
+        .classList.add("show");
 }
 
-// Risk Amount Section
-let margin = document.getElementById("margin");
-let percent = document.getElementById("percent");
 
-function riskManagment() {
+function riskManagement() {
 
-```
-let riskAmount =
-    Number(margin.value) *
-    (Number(percent.value) / 100);
+    const margin =
+        Number(document.getElementById("margin").value);
 
-let res =
-    document.getElementById("riskResult");
+    const percent =
+        Number(document.getElementById("percent").value);
 
-res.innerText =
-    `Risk Amount = ${riskAmount.toFixed(2)}$`;
+    const riskAmount =
+        margin * (percent / 100);
 
-res.classList.add("show");
-```
+    document.getElementById("riskResult").innerHTML =
+        `Risk Amount: ${riskAmount.toFixed(2)}$`;
 
+    document
+        .getElementById("riskResult")
+        .classList.add("show");
 }
