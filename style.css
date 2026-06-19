@@ -298,14 +298,20 @@ color:var(--risk);
 
 /* MOBILE */
 
-@media(max-width:900px){
+@media (max-width: 900px) {
 
-.container{
+  body{
+    padding:20px 10px;
+  }
 
-```
-flex-direction:column;
-```
+  .container{
+    flex-direction:column;
+    max-width:100%;
+  }
 
-}
+  .size,
+  .risk{
+    width:100%;
+  }
 
 }
