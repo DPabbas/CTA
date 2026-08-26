@@ -3,51 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CTA</title>
+    <title>CTA - Calculator Trader Assistance</title>
 
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
-
 <body>
 
-    <h1>Calculator Trader Assistance</h1>
+    <div class="wrapper">
 
-    <div class="container">
+        <h1>Calculator Trader Assistance</h1>
 
-        <div class="size">
+        <div class="container">
 
-            <p class="title">Position Size Calculator</p>
+            <div class="card">
 
-            <label>Risk Amount ($)</label>
-            <input id="risk" type="number" placeholder="0">
+                <p class="title">Position Size Calculator</p>
 
-            <label>Stop Loss (Pips)</label>
-            <input id="stop" type="number" placeholder="0">
+                <label>Risk Amount ($)</label>
+                <input id="risk" type="number" placeholder="100">
 
-            <label>Risk Reward (RR)</label>
-            <input id="rr" type="number" placeholder="2" value="2">
+                <label>Stop Loss (Pips)</label>
+                <input id="stop" type="number" placeholder="5">
 
-            <input type="button" value="Calculate" onclick="calculateTrade()">
+                <label>Risk Reward (RR)</label>
+                <input id="rr" type="number" value="2">
 
-            <p id="sizeResult" class="result"></p>
-            <p id="profitResult" class="result"></p>
+                <div id="sizeResult" class="result"></div>
+                <div id="profitResult" class="result"></div>
 
-        </div>
+            </div>
 
-        <div class="risk">
+            <div class="card">
 
-            <p class="title">Risk Percent Calculator</p>
+                <p class="title">Risk Percent Calculator</p>
 
-            <label>Account Balance</label>
-            <input id="margin" type="number" placeholder="1000">
+                <label>Account Balance ($)</label>
+                <input id="margin" type="number" placeholder="10000">
 
-            <label>Risk Percent</label>
-            <input id="percent" type="number" placeholder="2">
+                <label>Risk Percent (%)</label>
+                <input id="percent" type="number" value="2">
 
-            <input type="button" value="Calculate" onclick="riskManagement()">
+                <div id="riskResult" class="result"></div>
 
-            <p id="riskResult" class="result"></p>
+            </div>
 
         </div>
 
