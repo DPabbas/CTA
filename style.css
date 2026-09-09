@@ -4,7 +4,9 @@
     --input: #132238;
 
     --border: #1f3553;
+
     --accent: #3b82f6;
+    --gold: #fbbf24;
     --success: #22c55e;
 
     --text: #ffffff;
@@ -18,26 +20,25 @@
 }
 
 body {
+
     min-height: 100vh;
 
     background:
-        linear-gradient(
-            135deg,
-            #07101c,
-            #0b1b32
-        );
+    linear-gradient(
+        135deg,
+        #07101c,
+        #0b1b32
+    );
+
+    font-family: Segoe UI, sans-serif;
 
     color: var(--text);
-
-    font-family:
-        "Segoe UI",
-        sans-serif;
 
     padding: 40px 20px;
 }
 
 .wrapper {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: auto;
 }
 
@@ -48,13 +49,18 @@ h1 {
 }
 
 .container {
+
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+
+    grid-template-columns:
+    repeat(auto-fit, minmax(380px, 1fr));
+
     gap: 30px;
 }
 
 .card {
-    background: rgba(16, 28, 45, .9);
+
+    background: rgba(16, 28, 45, .95);
 
     border: 1px solid var(--border);
 
@@ -62,17 +68,27 @@ h1 {
 
     padding: 25px;
 
-    backdrop-filter: blur(10px);
-
     box-shadow:
-        0 15px 40px rgba(0,0,0,.3);
+    0 15px 35px rgba(0,0,0,.25);
+
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
 }
 
 .card h2 {
     margin-bottom: 25px;
+    color: var(--accent);
+}
+
+.gold-card h2 {
+    color: var(--gold);
 }
 
 label {
+
     display: block;
 
     margin-top: 15px;
@@ -80,49 +96,51 @@ label {
 
     color: var(--muted);
 
-    text-transform: uppercase;
-    letter-spacing: 1px;
-
     font-size: .85rem;
+
+    text-transform: uppercase;
 }
 
 input {
+
     width: 100%;
 
     padding: 14px 16px;
 
     background: var(--input);
 
+    color: white;
+
     border: 1px solid var(--border);
 
     border-radius: 14px;
-
-    color: white;
 
     font-size: 1rem;
 }
 
 input:focus {
+
     outline: none;
 
     border-color: var(--accent);
 
     box-shadow:
-        0 0 0 4px rgba(59,130,246,.15);
+    0 0 0 4px rgba(59,130,246,.15);
 }
 
 .result {
+
     margin-top: 15px;
 
     padding: 15px;
 
-    border-radius: 14px;
-
     background:
-        rgba(34,197,94,.08);
+    rgba(34,197,94,.08);
 
     border:
-        1px solid rgba(34,197,94,.25);
+    1px solid rgba(34,197,94,.25);
+
+    border-radius: 14px;
 
     line-height: 1.8;
 
