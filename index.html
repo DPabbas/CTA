@@ -10,49 +10,70 @@
 </head>
 <body>
 
-    <div class="wrapper">
+<div class="wrapper">
 
-        <h1>Calculator Trader Assistance</h1>
+    <h1>Calculator Trader Assistance</h1>
 
-        <div class="container">
+    <div class="container">
 
-            <div class="card">
+        <!-- Forex Calculator -->
+        <div class="card">
 
-                <h2>Forex Position Size Calculator</h2>
+            <h2>Forex Position Size</h2>
 
-                <label for="risk">Risk Amount ($)</label>
-                <input id="risk" type="number" value="100">
+            <label>Risk Amount ($)</label>
+            <input id="risk" type="number" value="100">
 
-                <label for="stop">Stop Loss (Pips)</label>
-                <input id="stop" type="number" value="2">
+            <label>Stop Loss (Pips)</label>
+            <input id="stop" type="number" value="2">
 
-                <label for="rr">Risk Reward (RR)</label>
-                <input id="rr" type="number" value="2">
+            <label>Risk Reward (RR)</label>
+            <input id="rr" type="number" value="2">
 
-                <div id="sizeResult" class="result"></div>
-                <div id="profitResult" class="result"></div>
+            <div id="sizeResult" class="result"></div>
+            <div id="profitResult" class="result"></div>
 
-            </div>
+        </div>
 
-            <div class="card">
+        <!-- Risk Calculator -->
+        <div class="card">
 
-                <h2>Risk Percent Calculator</h2>
+            <h2>Risk Percent Calculator</h2>
 
-                <label for="margin">Account Balance ($)</label>
-                <input id="margin" type="number" value="10000">
+            <label>Account Balance ($)</label>
+            <input id="margin" type="number" value="10000">
 
-                <label for="percent">Risk Percent (%)</label>
-                <input id="percent" type="number" value="2">
+            <label>Risk Percent (%)</label>
+            <input id="percent" type="number" value="2">
 
-                <div id="riskResult" class="result"></div>
+            <div id="riskResult" class="result"></div>
 
-            </div>
+        </div>
+
+        <!-- Gold Calculator -->
+        <div class="card gold-card">
+
+            <h2>XAUUSD Position Size</h2>
+
+            <label>Risk Amount ($)</label>
+            <input id="goldRisk" type="number" value="100">
+
+            <label>Stop Loss ($)</label>
+            <input id="goldStop" type="number" value="2">
+
+            <label>Risk Reward (RR)</label>
+            <input id="goldRR" type="number" value="2">
+
+            <div id="goldSizeResult" class="result"></div>
+            <div id="goldProfitResult" class="result"></div>
 
         </div>
 
     </div>
 
-    <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
