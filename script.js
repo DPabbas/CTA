@@ -1,171 +1,64 @@
-:root {
-    --bg-main: #0b0f14;
-    --bg-card: #141b24;
-    --bg-input: #1a2330;
+function calculateTrade() {
 
-    --border: #263445;
+    const risk = parseFloat(document.getElementById("risk").value);
+    const stop = parseFloat(document.getElementById("stop").value);
+    const rr = parseFloat(document.getElementById("rr").value);
 
-    --accent: #2f80ed;
-    --success: #00c076;
-
-    --text: #ffffff;
-    --text-muted: #9ca3af;
-
-    --shadow:
-        0 10px 30px rgba(0,0,0,.35);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    min-height: 100vh;
-
-    background: linear-gradient(
-        135deg,
-        #0b0f14,
-        #101722
-    );
-
-    font-family:
-        Inter,
-        Segoe UI,
-        sans-serif;
-
-    color: var(--text);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    padding: 30px;
-}
-
-.wrapper {
-    width: 100%;
-    max-width: 1100px;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 40px;
-
-    font-size: 2.3rem;
-    font-weight: 700;
-
-    color: white;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.card {
-    background: rgba(20, 27, 36, 0.9);
-
-    backdrop-filter: blur(10px);
-
-    border: 1px solid rgba(255,255,255,.06);
-
-    border-radius: 20px;
-
-    padding: 28px;
-
-    box-shadow: var(--shadow);
-
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-}
-
-.title {
-    font-size: 1.2rem;
-    font-weight: 700;
-
-    color: var(--accent);
-
-    margin-bottom: 25px;
-}
-
-label {
-    display: block;
-
-    margin-bottom: 8px;
-    margin-top: 16px;
-
-    color: var(--text-muted);
-
-    font-size: .95rem;
-}
-
-input {
-    width: 100%;
-
-    background: var(--bg-input);
-
-    border: 1px solid var(--border);
-
-    border-radius: 12px;
-
-    padding: 14px 16px;
-
-    color: white;
-
-    font-size: 1rem;
-
-    transition: .25s;
-}
-
-input:focus {
-    outline: none;
-
-    border-color: var(--accent);
-
-    box-shadow:
-        0 0 0 4px rgba(47,128,237,.15);
-}
-
-.result {
-    margin-top: 18px;
-
-    padding: 16px;
-
-    border-radius: 12px;
-
-    background: rgba(0,192,118,.08);
-
-    border: 1px solid rgba(0,192,118,.25);
-
-    line-height: 1.9;
-
-    color: #e5fdf2;
-
-    min-height: 55px;
-}
-
-.result strong {
-    color: var(--success);
-    font-size: 1.05rem;
-}
-
-@media (max-width: 768px) {
-
-    h1 {
-        font-size: 1.8rem;
+    if (isNaN(risk) || isNaN(stop) || isNaN(rr)) {
+        return;
     }
 
-    .container {
-        grid-template-columns: 1fr;
+    const positionSize = risk / ((stop * 10) + 5);
+
+    const grossProfit = risk * rr;
+    const commission = positionSize * 5;
+    const netProfit = grossProfit - commission;
+    const effectiveRR = netProfit / risk;
+
+    document.getElementById("sizeResult").innerHTML =
+        `<strong>Position Size:</strong> ${positionSize.toFixed(2)} Lot`;
+
+    document.getElementById("profitResult").innerHTML =
+        `
+        <strong>Gross Profit:</strong> $${grossProfit.toFixed(2)}<br>
+        <strong>Commission:</strong> $${commission.toFixed(2)}<br>
+        <strong>Net Profit:</strong> $${netProfit.toFixed(2)}<br>
+        <strong>Effective RR:</strong> ${effectiveRR.toFixed(2)}
+        `;
+}
+
+function riskManagement() {
+
+    const margin = parseFloat(document.getElementById("margin").value);
+    const percent = parseFloat(document.getElementById("percent").value);
+
+    if (isNaN(margin) || isNaN(percent)) {
+        return;
     }
 
-    .card {
-        padding: 22px;
-    }
+    const riskAmount = margin * (percent / 100);
+
+    document.getElementById("riskResult").innerHTML =
+        `<strong>Risk Amount:</strong> $${riskAmount.toFixed(2)}`;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.getElementById("risk")
+        .addEventListener("input", calculateTrade);
+
+    document.getElementById("stop")
+        .addEventListener("input", calculateTrade);
+
+    document.getElementById("rr")
+        .addEventListener("input", calculateTrade);
+
+    document.getElementById("margin")
+        .addEventListener("input", riskManagement);
+
+    document.getElementById("percent")
+        .addEventListener("input", riskManagement);
+
+    calculateTrade();
+    riskManagement();
+});
